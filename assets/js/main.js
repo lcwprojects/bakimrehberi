@@ -446,40 +446,9 @@
 popupSideMenu('.shopping-cart', '.sideMenuToggler2', '.sideMenuCls', 'show');
 
 
-    /*----------- 11. Magnific Popup ----------*/
-    /* magnificPopup img view */
-    $(".popup-image").magnificPopup({
-        type: "image",
-        mainClass: 'mfp-zoom-in', 
-        removalDelay: 260,
-        gallery: {
-            enabled: true,
-        },
-    });
+    /* ========== 11. Magnific Popup ========== */
 
-   
-      
-
-    /* magnificPopup video view */
-    $(".popup-video").magnificPopup({
-        type: "iframe",
-    });
-
-    /* magnificPopup video view */
-    $(".popup-content").magnificPopup({
-        type: "inline",
-        midClick: true,
-    });
-
-        /* ==================================================
-               # Bubble Burst 
-            ===============================================*/ 
-
-  $(".hero-animated-bubble img").hover(function() {  
-    $(this).addClass("bubble-burst"); 
-});   
-
-    /*---------- 12. Section Position ----------*/
+    /* ========== 12. Section Position ========== */
     // Interger Converter
     function convertInteger(str) {
         return parseInt(str, 10);
@@ -523,7 +492,7 @@ popupSideMenu('.shopping-cart', '.sideMenuToggler2', '.sideMenuCls', 'show');
         });
     }
 
-    /*----------- 14. Filter ----------*/
+    /*----------- 13. Filter ----------*/
     $(".filter-active").imagesLoaded(function () {
         var $filter = ".filter-active",
             $filterItem = ".filter-item",
