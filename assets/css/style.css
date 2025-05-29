@@ -17251,7 +17251,7 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .urun-box .box-title {
-  margin: 40px 0 10px 0;
+  margin: 40px 0 10px 0 !important;
 }
 
 .urun-box .box-text {
