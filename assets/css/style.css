@@ -1,78 +1,5 @@
 @charset "UTF-8";
-/*=================================
-    CSS Index Here
-==================================*/
-/*
 
-01. Theme Base
-    1.1. Mixin
-    1.2. Function
-    1.3. Variable
-    1.4. Typography
-    1.5. Extend
-    1.7. Wordpress Default
-02. Reset
-    2.1. Container
-    2.2. Grid
-    2.3. Input
-    2.4. Slider
-    2.5. Mobile Menu
-03. Utilities
-    3.1. Preloader
-    3.2. Buttons
-    3.3. Titles
-    3.4. Common
-    3.6. Font
-    3.7. Background
-    3.8. Text Color
-    3.9. Overlay
-    3.10. Animation
-    
-04. Template Style
-    4.1. Widget
-    4.2. Header
-    4.3. Footer
-    4.4. Breadcumb
-    4.5. Pagination
-    4.6. Blog
-    4.7. Comments
-    4.8. Hero Area
-    4.9. Error    
-    4.00. Popup Search
-    4.00. Popup Side Menu
-    4.00. Wocommerce
-    4.00. Products
-    4.00. Cart
-    4.00. Checkout
-    4.00. Wishlist
-    4.00. Contact
-    4.00. About
-    4.00. Team
-    4.00. Testimonial
-    4.00. Counter
-    4.00. Blog
-    4.00. Brand
-    4.00. Simple Sections
-    4.00. Why
-    4.00. Faq
-    4.00. urun
-    4.00. Process
-    4.00. Feature
-    4.00. Gallery
-    4.00. Category
-    4.00. CTA
-    4.00. Deal
-    4.00. Tab Menu
-
-05. Spacing
-
-*/
-/*=================================
-    CSS Index End
-==================================*/
-/*=================================
-   01. Theme Base
-==================================*/
 /*------------------- 1.1. Mixin -------------------*/
 @use "sass:math";
 /*------------------- 1.2. Function -------------------*/
@@ -19992,4 +19919,197 @@ div>.mw-text p.text {
 .symbol-text p {
   margin-top: 0;
   line-height: 1.3;
+}
+
+  /* Popup Modal Custom Styles */
+  .modal-dialog.modal-lg {
+    max-width: 90% !important; /* Ekran genişliğinin %90'ını kullan */
+    width: auto !important; /* Otomatik genişlik */
+    margin-left: auto; /* Otomatik sol kenar boşluğu ile ortala */
+    margin-right: auto; /* Otomatik sağ kenar boşluğu ile ortala */
+}
+
+/* Büyük ekranlarda maksimum genişlik */
+@media (min-width: 992px) {
+    .modal-dialog.modal-lg {
+        max-width: 900px !important;
+    }
+}
+
+/* Çok büyük ekranlarda maksimum genişlik */
+@media (min-width: 1200px) {
+    .modal-dialog.modal-lg {
+        max-width: 1100px !important;
+    }
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+/* TÜM metin içeren bloklar (ana başlık dahil) için genel stil */
+.modal-body p,
+.modal-body h3.modal-title,
+.modal-body h4,
+.modal-body h5,
+.modal-body h5,
+.modal-body .symbol-container {
+    max-width: 100% !important; /* Mobilde tam genişlik kullan */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 15px !important; /* Mobilde daha az boşluk */
+    padding-right: 15px !important;
+    /* text-align: center !important; KALDIRILDI, varsayılan (sola dayalı) kullanılacak */
+}
+
+/* Orta ve büyük ekranlar için padding */
+@media (min-width: 768px) {
+    .modal-body p,
+    .modal-body h3.modal-title,
+    .modal-body h4,
+    .modal-body h5,
+    .modal-body h5,
+    .modal-body .symbol-container {
+        max-width: 50rem !important; /* Masaüstünde sınırlı genişlik */
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+}
+
+.modal-body p { /* Sadece font boyutu için */
+    font-size: 17px !important;
+}
+
+/* Mobil görünümde sembol konteynerleri için düzen */
+@media (max-width: 576px) {
+    #BakimTalimatlariModal .symbol-container {
+        flex-direction: column !important;
+        align-items: flex-start !important; /* Sola dayalı yap */
+    }
+    
+    #BakimTalimatlariModal .symbol-container img {
+        margin-bottom: 15px !important;
+        margin-right: 0 !important; /* me-3 class'ının etkisini gidermek için */
+        margin-left: 0 !important;
+        align-self: flex-start !important;
+    }
+    
+    #BakimTalimatlariModal .symbol-text {
+        width: 100% !important;
+        text-align: left !important; /* Sola dayalı yap */
+    }
+    
+    #BakimTalimatlariModal .symbol-text .thin-title {
+        text-align: left !important; /* Sola dayalı yap */
+    }
+}
+
+/* product-big-img için istisna (ortalamadan ve daraltmadan muaf) */
+.modal-body .product-big-img {
+    max-width: 100% !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important; 
+    margin-right: 0 !important;
+}
+
+/* Bakım Sembolleri Modal için SADECE İKON boyutu ve ikonun ortalanması */
+#BakimTalimatlariModal .symbol-container img {
+    width: 90px !important;
+    height: 90px !important;
+    object-fit: contain;
+    display: block; /* İkonun kendi satırında ortalanması için */
+    margin-left: auto; /* İkonun kendi satırında ortalanması için */
+    margin-right: auto; /* İkonun kendi satırında ortalanması için */
+    margin-bottom: 10px; /* İkon ile altındaki metin arasına boşluk */
+}
+
+/* #BakimTalimatlariModal .symbol-text p, .thin-title, .category-title için olan özel padding:0 ve text-align:left kuralları kaldırıldı */
+
+/* Sadece product-big-img için istisna kalsın */
+modal-title { /* Bu blok zaten aşağıdaki ile birleşmişti, tekrar kontrol */
+    max-width: none !important; 
+    width: auto !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important; 
+    margin-right: 0 !important;
+    text-align: left !important; 
+}
+
+.modal-body .product-big-img {
+    max-width: 100% !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important; 
+    margin-right: 0 !important;
+}
+
+/* Bakım Sembolleri Modal için Özel Stiller */
+#BakimTalimatlariModal .symbol-container img {
+    width: 90px !important;
+    height: 90px !important;
+    object-fit: contain; /* Görselin bozulmamasını sağlar */
+}
+
+#BakimTalimatlariModal .symbol-text p,
+#BakimTalimatlariModal .symbol-text .thin-title, /* h5 */
+#BakimTalimatlariModal .category-title { /* h5 */
+    text-align: left !important;
+    padding-left: 0 !important; /* .symbol-text içindeki padding'i sıfırla */
+    padding-right: 0 !important;/* .symbol-text içindeki padding'i sıfırla */
+}
+
+#BakimTalimatlariModal .symbol-text .thin-title {
+    margin-left: 0 !important; 
+    margin-right: 0 !important;
+}
+
+/* Modal Title Underline */
+.modal-body h3.modal-title {
+    position: relative;
+    padding-bottom: 0.5rem; /* Başlığın altına boşluk */
+    margin-bottom: 1rem; /* Çizgi ile sonraki içerik arasına boşluk */
+}
+.modal-body h3.modal-title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0; /* Çizgi rengi */
+    margin-top: 0.5rem;
+}
+
+/* Bakım Talimatları Modal için Sol Hizalama Düzeltmesi */
+#BakimTalimatlariModal .category-title,
+#BakimTalimatlariModal .symbol-container {
+    /* Diğer modallarla aynı şekilde ortalanmış 50rem genişlikte tut */
+    max-width: 50rem !important;
+    margin-left: auto !important; 
+    margin-right: auto !important;
+}
+#BakimTalimatlariModal .symbol-container {
+    padding-left: 30px !important; /* İç boşluk koru */
+    padding-right: 30px !important;
+}
+/* Kategori başlıklarına özel padding ekle */
+#BakimTalimatlariModal .category-title {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+/* Bakım Talimatları sembol açıklamalarındaki sağa kayma sorunlarını düzelt */
+#BakimTalimatlariModal .symbol-text p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+}
+
+/* Mobil görünümde sembollerin açıklamalarını ortala */
+@media (max-width: 576px) {
+    #BakimTalimatlariModal .symbol-text p {
+        text-align: left !important; /* Sola dayalı yap */
+    }
 }
